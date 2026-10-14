@@ -24,7 +24,8 @@ Constraints:
 """
 
 class Solution:
-    def singleNumber(self, nums: list[int]) -> int:
+    # Naive Approach
+    def singleNumberA(self, nums: list[int]) -> int:
         output_arr = []
         for num_l1 in nums:
             count = 0
@@ -35,3 +36,10 @@ class Solution:
                 output_arr.append(num_l1)
         if len(output_arr) == 1:
             return output_arr[0]
+    
+    # XOR Approach
+    def singleNumberB(self, nums: list[int]) -> int:
+        output = 0
+        for num in nums:
+            output ^= num
+        return output
